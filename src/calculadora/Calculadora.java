@@ -2,7 +2,7 @@ package calculadora;
 
 /**
  *
- * @author Mauricio
+    * @author Oscar Ardila
  */
 public class Calculadora {
     private int ans=0;
