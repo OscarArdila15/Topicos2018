@@ -5,12 +5,15 @@
  */
 package calculadora;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runners.Parameterized;
 
 /**
  *
@@ -18,9 +21,21 @@ import static org.junit.Assert.*;
  */
 public class CalculadoraTest {
     static Calculadora calc;
-    public CalculadoraTest() {
+   static int a,b,c;
+
+    @Parameterized.Parameters
+    public static Iterable<Object[]>getData(){
+        List<Object[]> obj= new ArrayList<>();
+        obj.add(new Object[] {2,8,10} );
+        //obj.add(new Object[] {1,4,6} );
+        return  obj;
     }
     
+     public CalculadoraTest(int a , int b, int c) {
+        this.a=a;
+        this.b=b;
+        this.c=c;
+    }
     @BeforeClass
     public static void setUpClass() {
         calc =new Calculadora(); 
@@ -39,6 +54,14 @@ public class CalculadoraTest {
     public void tearDown() {
     }
     
+    @Test 
+    public void testSumaP(){
+        System.out.println("testSuma()");
+        
+        int resultado = calc.suma(a,b);
+        int esperado=c;
+        assertEquals(esperado,resultado);
+    }
      @Test
     public void testSuma(){
         System.out.println("testSuma()");
@@ -107,10 +130,8 @@ public class CalculadoraTest {
         double delta= 0.30;
             assertEquals(delta, delta, delta);
         assertEquals(expResult, result,0.1);
-        
-        
-        
-    }
+        }
+    
 
     
     
