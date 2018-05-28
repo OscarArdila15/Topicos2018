@@ -38,10 +38,7 @@ public class CalculadoraTest {
     @After
     public void tearDown() {
     }
-
-    /**
-     * Test of suma method, of class Calculadora.
-     */
+    
      @Test
     public void testSuma(){
         System.out.println("testSuma()");
@@ -92,10 +89,29 @@ public class CalculadoraTest {
         calc.optima();
         
     }
-    //modificacion afterclass
-    @AfterClass
-    public static void Afterclass(){
-        System.out.println("Afterclass()");
+    @Test
+        public void testObj() {
+        System.out.println("Double");
+        Calculadora a= new Calculadora();
+        Calculadora b= new Calculadora();
+        assertEquals(a,b);
+       
+    }
+        @Test
+    public void testDouble() {
+        System.out.println("Double");
+        double a= 3.0002;
+        double b= 3.0000000;
+        double expResult =6.0002;
+        double result = calc.div2(a, b);
+        double delta= 0.30;
+            assertEquals(delta, delta, delta);
+        assertEquals(expResult, result,0.1);
+        
+        
         
     }
+
+    
+    
 }

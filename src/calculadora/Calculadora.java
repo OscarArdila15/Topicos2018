@@ -54,4 +54,10 @@ public class Calculadora {
             
         }
     }
+    public double div2 (double a, double b){
+        double ansa;
+        ansa=a+b;
+        return(ansa);
+        
+    }
 }
